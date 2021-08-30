@@ -133,7 +133,7 @@ input, select, textarea {
 		margin: 0 0 2em 0;
 	}
 
-	h1, h2, h3, h4, h5, h6 {
+	h1, h2, h3, h4, h5, h6, h7 {
 		color: #555;
 		line-height: 1em;
 		margin: 0 0 1em 0;
@@ -2359,10 +2359,25 @@ input, select, textarea {
 		position: relative;
 	}
 
-		.image img {
-			border-radius: 4px;
-			display: block;
-		}
+	.image img {
+		float: left;
+		width:  50px;
+		height: 300px;
+		object-fit:scale-down;
+		padding-top: 50px;
+	}
+
+	.image1 img {
+		float: left;
+		width:  378px;
+		height: 385px;
+		object-fit:scale-down;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		padding-left: 25%;
+		padding-right: 10%;
+	
+	}
 
 		.image.left {
 			float: left;
@@ -2392,6 +2407,7 @@ input, select, textarea {
 
 			.image.fit img {
 				width: 100%;
+				
 			}
 
 /* List */
@@ -3528,5 +3544,8 @@ input, select, textarea {
 	}  
 
 	.myImg{
-		margin-left: 130px;
+		/* position:absolute;
+		top: 120%;
+		left: 55%; */
+		width: 100%;
 	}
