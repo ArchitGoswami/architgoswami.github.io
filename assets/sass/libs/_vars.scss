@@ -1,60 +1,49 @@
 // Misc.
 	$misc: (
-		z-index-base:		10000
+		z-index-base:		10000,
+		max-features:		20,
+		max-sidebar-links:	20
 	);
 
 // Duration.
 	$duration: (
-		transition:			0.2s
+		transition:			0.2s,
+		activation:			1s
 	);
 
 // Size.
 	$size: (
-		border-radius:		4px,
+		border-radius:		0.25em,
+		border-width:		1px,
 		element-height:		2.75em,
 		element-margin:		2em,
-		container-width:	60em
+		sidebar-width:		18em,
+		sidebar-height:		3.5em,	// when <=large is active
+		inner-width:		75em
 	);
 
 // Font.
 	$font: (
-		family:				('Source Sans Pro', Helvetica, sans-serif),
+		family:				(Arial, Helvetica, sans-serif),
 		family-fixed:		('Courier New', monospace),
-		weight:				300,
-		weight-bold:		400
+		weight:				normal,
+		weight-bold:		bold,
+		kerning-alt:		0.25em
 	);
 
 // Palette.
 	$palette: (
-		bg:					#fff,
-		fg:					#666,
-		fg-bold:			#555,
-		fg-light: 			#999,
-		border:				rgba(144,144,144,0.5),
-		border-bg:			rgba(144,144,144,0.075),
-		border2:			rgba(144,144,144,0.75),
-		border2-bg:			rgba(144,144,144,0.2),
-		accent1:			#c3e895,
-		accent2:			#8addaa,
-		accent3:			#6bd4c8,
-		accent4:			#57aed3,
-		accent5:			#4a87d3,
-		accent6:			#6b88e6,
-		accent1-alt:		desaturate(darken(#c3e895, 15), 20),
-		accent2-alt:		desaturate(darken(#8addaa, 15), 20),
-		accent3-alt:		desaturate(darken(#6bd4c8, 15), 20),
-		accent4-alt:		desaturate(darken(#57aed3, 15), 20),
-		accent5-alt:		desaturate(darken(#4a87d3, 15), 20),
-		accent6-alt:		desaturate(darken(#6b88e6, 15), 20),
-
-		dark: (
-			bg:				#666666,
-			fg-bold:		#ffffff,
-			fg:				rgba(255,255,255,0.75),
-			fg-light:		rgba(255,255,255,0.5),
-			border:			#ffffff,
-			border-bg:		rgba(255,255,255,0.125),
-			border2:		rgba(255,255,255,0.75),
-			border2-bg:		rgba(255,255,255,0.25)
-		)
+		bg:					#312450,
+		bg-alt:				darken(#312450, 5),
+		fg:					rgba(255,255,255,0.55),
+		fg-bold:			#ffffff,
+		fg-light:			rgba(255,255,255,0.35),
+		border:				rgba(255,255,255,0.15),
+		border-bg:			rgba(255,255,255,0.05),
+		accent1:			#5e42a6,
+		accent1-alt:		darken(#5e42a6, 10),
+		accent2:			#5052b5,
+		accent2-alt:		darken(#5052b5, 10),
+		accent3:			#b74e91,
+		accent3-alt:		darken(#b74e91, 10)
 	);
