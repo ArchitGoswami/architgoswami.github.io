@@ -1,190 +1,246 @@
-/*
-	Hyperspace by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+// ==========================================
+// MODERN PORTFOLIO JAVASCRIPT WITH DARK MODE
+// ==========================================
 
-(function($) {
+// Theme Management
+const themeToggle = document.getElementById('themeToggle');
+const html = document.documentElement;
+const themeIcon = themeToggle.querySelector('i');
 
-	var	$window = $(window),
-		$body = $('body'),
-		$sidebar = $('#sidebar');
+// Check for saved theme preference or default to 'light'
+const currentTheme = localStorage.getItem('theme') || 'light';
+html.setAttribute('data-theme', currentTheme);
+updateThemeIcon(currentTheme);
 
-	// Breakpoints.
-		breakpoints({
-			xlarge:   [ '1281px',  '1680px' ],
-			large:    [ '981px',   '1280px' ],
-			medium:   [ '737px',   '980px'  ],
-			small:    [ '481px',   '736px'  ],
-			xsmall:   [ null,      '480px'  ]
-		});
+// Theme toggle function
+themeToggle.addEventListener('click', () => {
+    const currentTheme = html.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    html.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
 
-	// Hack: Enable IE flexbox workarounds.
-		if (browser.name == 'ie')
-			$body.addClass('is-ie');
+// Update theme icon
+function updateThemeIcon(theme) {
+    if (theme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    }
+}
 
-	// Play initial animations on page load.
-		$window.on('load', function() {
-			window.setTimeout(function() {
-				$body.removeClass('is-preload');
-			}, 100);
-		});
+// Smooth Scrolling for Navigation Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-	// Forms.
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
 
-		// Hack: Activate non-input submits.
-			$('form').on('click', '.submit', function(event) {
+// Mobile Menu Toggle
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
 
-				// Stop propagation, default.
-					event.stopPropagation();
-					event.preventDefault();
+if (hamburger) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        hamburger.classList.toggle('active');
+    });
 
-				// Submit form.
-					$(this).parents('form').submit();
+    // Close menu when clicking a link
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+}
 
-			});
+// Active Navigation on Scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinksArray = document.querySelectorAll('.nav-link');
 
-	// Sidebar.
-		if ($sidebar.length > 0) {
+function activateNavOnScroll() {
+    const scrollY = window.pageYOffset;
 
-			var $sidebar_a = $sidebar.find('a');
+    sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
 
-			$sidebar_a
-				.addClass('scrolly')
-				.on('click', function() {
+        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLinksArray.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+    });
+}
 
-					var $this = $(this);
+window.addEventListener('scroll', activateNavOnScroll);
 
-					// External link? Bail.
-						if ($this.attr('href').charAt(0) != '#')
-							return;
+// Navbar Background on Scroll
+const navbar = document.querySelector('.navbar');
 
-					// Deactivate all links.
-						$sidebar_a.removeClass('active');
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        navbar.style.boxShadow = '0 4px 6px -1px rgb(0 0 0 / 0.1)';
+    } else {
+        navbar.style.boxShadow = '0 1px 2px 0 rgb(0 0 0 / 0.05)';
+    }
+});
 
-					// Activate link *and* lock it (so Scrollex doesn't try to activate other links as we're scrolling to this one's section).
-						$this
-							.addClass('active')
-							.addClass('active-locked');
+// Intersection Observer for Animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -100px 0px'
+};
 
-				})
-				.each(function() {
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+        }
+    });
+}, observerOptions);
 
-					var	$this = $(this),
-						id = $this.attr('href'),
-						$section = $(id);
+// Observe all project cards and timeline items
+document.querySelectorAll('.project-card, .timeline-item, .stat-card').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
+});
 
-					// No section for this link? Bail.
-						if ($section.length < 1)
-							return;
+// Form Submission Handler
+const contactForm = document.querySelector('.contact-form');
 
-					// Scrollex.
-						$section.scrollex({
-							mode: 'middle',
-							top: '-20vh',
-							bottom: '-20vh',
-							initialize: function() {
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form data
+        const formData = new FormData(contactForm);
+        
+        // Here you would typically send the data to a server
+        // For now, we'll just show a success message
+        alert('Thank you for your message! I will get back to you soon.');
+        contactForm.reset();
+    });
+}
 
-								// Deactivate section.
-									$section.addClass('inactive');
+// Typing Effect for Hero Section (Optional Enhancement)
+const heroSubtitle = document.querySelector('.hero-subtitle');
+if (heroSubtitle) {
+    const text = heroSubtitle.textContent;
+    heroSubtitle.textContent = '';
+    let i = 0;
 
-							},
-							enter: function() {
+    function typeWriter() {
+        if (i < text.length) {
+            heroSubtitle.textContent += text.charAt(i);
+            i++;
+            setTimeout(typeWriter, 50);
+        }
+    }
 
-								// Activate section.
-									$section.removeClass('inactive');
+    // Start typing effect after page load
+    window.addEventListener('load', () => {
+        setTimeout(typeWriter, 500);
+    });
+}
 
-								// No locked links? Deactivate all links and activate this section's one.
-									if ($sidebar_a.filter('.active-locked').length == 0) {
+// Back to Top Button
+const backToTop = document.createElement('button');
+backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
+backToTop.className = 'back-to-top';
+backToTop.setAttribute('aria-label', 'Back to top');
+backToTop.style.cssText = `
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #88BDF2 0%, #6A89A7 100%);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 999;
+    box-shadow: 0 4px 12px rgba(136, 189, 242, 0.4);
+`;
 
-										$sidebar_a.removeClass('active');
-										$this.addClass('active');
+document.body.appendChild(backToTop);
 
-									}
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backToTop.style.opacity = '1';
+    } else {
+        backToTop.style.opacity = '0';
+    }
+});
 
-								// Otherwise, if this section's link is the one that's locked, unlock it.
-									else if ($this.hasClass('active-locked'))
-										$this.removeClass('active-locked');
+backToTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
 
-							}
-						});
+backToTop.addEventListener('mouseenter', () => {
+    backToTop.style.transform = 'translateY(-5px) scale(1.1)';
+    backToTop.style.boxShadow = '0 6px 20px rgba(136, 189, 242, 0.6)';
+});
 
-				});
+backToTop.addEventListener('mouseleave', () => {
+    backToTop.style.transform = 'translateY(0) scale(1)';
+    backToTop.style.boxShadow = '0 4px 12px rgba(136, 189, 242, 0.4)';
+});
 
-		}
+document.body.appendChild(backToTop);
 
-	// Scrolly.
-		$('.scrolly').scrolly({
-			speed: 1000,
-			offset: function() {
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 500) {
+        backToTop.style.opacity = '1';
+    } else {
+        backToTop.style.opacity = '0';
+    }
+});
 
-				// If <=large, >small, and sidebar is present, use its height as the offset.
-					if (breakpoints.active('<=large')
-					&&	!breakpoints.active('<=small')
-					&&	$sidebar.length > 0)
-						return $sidebar.height();
+backToTop.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
 
-				return 0;
+backToTop.addEventListener('mouseenter', () => {
+    backToTop.style.transform = 'translateY(-5px)';
+});
 
-			}
-		});
+backToTop.addEventListener('mouseleave', () => {
+    backToTop.style.transform = 'translateY(0)';
+});
 
-	// Spotlights.
-		$('.spotlights > section')
-			.scrollex({
-				mode: 'middle',
-				top: '-10vh',
-				bottom: '-10vh',
-				initialize: function() {
-
-					// Deactivate section.
-						$(this).addClass('inactive');
-
-				},
-				enter: function() {
-
-					// Activate section.
-						$(this).removeClass('inactive');
-
-				}
-			})
-			.each(function() {
-
-				var	$this = $(this),
-					$image = $this.find('.image'),
-					$img = $image.find('img'),
-					x;
-
-				// Assign image.
-					$image.css('background-image', 'url(' + $img.attr('src') + ')');
-
-				// Set background position.
-					if (x = $img.data('position'))
-						$image.css('background-position', x);
-
-				// Hide <img>.
-					$img.hide();
-
-			});
-
-	// Features.
-		$('.features')
-			.scrollex({
-				mode: 'middle',
-				top: '-20vh',
-				bottom: '-20vh',
-				initialize: function() {
-
-					// Deactivate section.
-						$(this).addClass('inactive');
-
-				},
-				enter: function() {
-
-					// Activate section.
-						$(this).removeClass('inactive');
-
-				}
-			});
-
-})(jQuery);
+// Console Easter Egg
+console.log('%c👋 Hello, fellow developer!', 'font-size: 20px; font-weight: bold; color: #6366f1;');
+console.log('%cLike what you see? Let\'s connect!', 'font-size: 14px; color: #8b5cf6;');

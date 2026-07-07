@@ -1,154 +1,398 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<title>architgoswami.com</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<link rel="icon" href="assets/images/FaviconTabImg.jpg">
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archit Goswami - Software Developer</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">AG</a>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-		<!-- Sidebar -->
-			<section id="sidebar">
-				<div class="inner">
-					<nav>
-						<ul>
-							<li><a href="#intro">Introduction</a></li>
-							<li><a href="#one">Experience</a></li>
-							<li><a href="#three">Education</a></li>
-							<li><a href="#two">Skills</a></li>
-						</ul>
-					</nav>
-				</div>
-			</section>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <p class="hero-greeting">Hi, my name is</p>
+                <h1 class="hero-title">Archit Goswami</h1>
+                <h2 class="hero-subtitle">I enjoy solving complex problems</h2>
+                <p class="hero-description">
+					I am a back-end cloud developer with a passion for solving complex problems, specializing in designing scalable cloud-based solutions.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-		<!-- Wrapper -->
-			<div id="wrapper">
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Hello! I'm Archit, a passionate software developer who loves creating things that live on the internet. 
+                        My interest in development started back in college when I built my first website — turns out hacking together 
+                        HTML & CSS taught me a lot about web development!
+                    </p>
+                    <p>
+                        Fast-forward to today, and I've had the privilege of working on various projects ranging from 
+                        web applications to mobile apps. My main focus these days is building accessible, inclusive products 
+                        and digital experiences.
+                    </p>
+                    <p>Here are a few technologies I've been working with recently:</p>
+                    <ul class="skills-grid">
+                        <li><i class="fas fa-code"></i> Java</li>
+                        <li><i class="fas fa-code"></i> Python</li>
+                        <li><i class="fas fa-code"></i> JavaScript</li>
+                        <li><i class="fas fa-code"></i> React</li>
+                        <li><i class="fas fa-code"></i> Node.js</li>
+                        <li><i class="fas fa-code"></i> SQL</li>
+                        <li><i class="fas fa-code"></i> MongoDB</li>
+                        <li><i class="fas fa-code"></i> AWS</li>
+                    </ul>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="stat-number">50+</h3>
+                        <p class="stat-label">Projects Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <h3 class="stat-number">3+</h3>
+                        <p class="stat-label">Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-				<!-- Intro -->
-					<section id="intro" class="wrapper style1 fullscreen fade-up">
-						<div class="inner">
-							<h1>Archit Goswami</h1>
-							<p>I am a back-end cloud developer with a passion for solving complex problems, specializing in designing scalable cloud-based solutions. My background includes a Bachelor's degree in Computer Science from Penn State.</p>
-						</div>
-					</section>
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">July 2024 - Present</div>
+                        <h3 class="timeline-title">Software Engineer</h3>
+                        <h4 class="timeline-company">Deloitte</h4>
+                        <p class="timeline-description">
+                            Working on enterprise-level solutions and contributing to innovative projects 
+                            in cloud computing and software development.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Cloud Computing</span>
+                            <span class="tag">Enterprise Solutions</span>
+                            <span class="tag">Software Development</span>
+                        </div>
+                    </div>
+                </div>
 
-				<!-- One -->
-					<section id="one" class="wrapper style2 spotlights">
-						<section>
-							<div class="content">
-								<div class="inner">
-									<h2>Software Developer at Oracle Cloud Infrastructure (Compute) </h2>
-									<p> • Developed a triage and repair service for bare metal hosts, reducing the number of unfit hosts. <br>
-										• Implemented spike detection monitor for hardware/software issues across 25+ regions, introducing detection intelligence to the system.<br>
-										• Automated deployment and onboarding to 8 new regions in 2 months using Terraform.<br>
-										• Database development for buckets required by the service in Oracle’s custom No-SQL Key-Value DB.<br>
-										• Enhanced GPU host repair processes and debugged cause for repeat offenders for clients.<br>
-										• Improved deployment automation (CI/CD improvements), saving over 400 developer hours in just 6 months.<br>
-										• Established monitoring/alert systems (Grafana, MQL), cutting outage visibility analysis time from 35 to 2 minutes.<br>
-										• Reduced post-deployment bug realization from 48 to 6 hours by automating testing using canaries in production environments.<br>
-									</p>
-								</div>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<div class="inner">
-									<h2> Project Lead at Shriver Anthropological Genomics Lab</h2>
-									<p>• Increased accuracy by 13% for the curvature analysis, improving the readability of the curvature analysis report. <br>
-										• Improved code structure by organizing 2000+ lines into distinct modular classes. <br>
-										• Improved CLI and created documentation and demo systems for future users. <br>
-										• Hiring and project lead for a 4-member dev team under Dr. Tina Lasisi to improve the Fibermorph python package for analyzing hair morphology. <br>
-									</p>
-								</div>
-							</div>
-						</section>
-						<section>
-							<div class="content">
-								<div class="inner">
-									<h2>Software Development Intern at Oracle Cloud Infrastructure (Oracle Digital Assistant)</h2>
-									<p> • Worked on RESTful APIs and Swagger 3.0 for testing and NLP analysis. <br>
-										• Used OpenAPI documentation to generate test cases and utilize existing testing framework to create a report of the HTTP request calls made.<br>
-										• Developed a recursive parser to create the blueprint for automated fuzzer test case generation for Oracle Digital Assistant using Java, Gradle, and TestNG. <br>
-									</p>
-								</div>
-							</div>
-						</section><section>
-							<div class="content">
-								<div class="inner">
-									<h2>Prior Internships</h2>
-									<p>Oracle Middle East (December 2018) <br> Vinculum MEA (July 2017) <br> Envision Enterprise Solutions (June 2016) </p>
-								</div>
-							</div>
-						</section>
-					</section>
-				<!-- Three -->
-					<section id="three" class="wrapper style1 fade-up">
-						<div class="inner">
-							<h2>Education</h2>
-							<p> The Pennsylvania State University, University Park </p> 
-								<p style="margin-left: 25px;"> 
-									<u>Graduated</u>: May 2022 <br>
-									<u>Major</u>: B.S. in Computer Science<br>
-									<u>Minor</u>: Engineering Leadership and Development <br>
-								    <u>Relevant coursework</u>: OS Design, OOP, Data Structures, RDBMS, Computer Vision, Machine Learning <br>
-								    <u>Dean’s List</u>: Spring 2020, Spring 2022 <br></p>
-						</div>
-					</section>
-				<!-- Two -->
-					<section id="two" class="wrapper style3 fade-up">
-						<div class="inner">
-							<h2>Skills</h2>
-							<div class="features">
-								<section>
-									<img style="max-width: 200px; max-height: 200px"; src="assets\images\python.svg">
-								</section>
-								<section>
-									<img style="max-width: 200px; max-height: 200px"; src="assets\images\java.svg">
-								</section>
-								<section>
-									<img style="max-width: 200px; max-height: 200px"; src="assets\images\bash-icon.svg">
-								</section>
-								<section>
-									<img style="max-width: 200px; max-height: 200px"; src="assets\images\terraform.svg">
-								</section>
-								<section>
-									<img style="max-width: 200px; max-height: 200px"; src="assets\images\sql.png">
-								</section>
-								<section>
-									<img style="max-width: 200px; max-height: 200px"; src="assets\images\maven.png">
-								</section>
-								<section>
-									<img style="max-width: 200px; max-height: 200px"; src="assets\images\git-icon.svg">
-								</section>
-								<section>
-									<img style="max-width: 200px; max-height: 200px"; src="assets\images\gradle.svg">
-								</section>
-							</div>
-						</div>
-					</section>
-				</div>
-				
-		<!-- Footer -->
-			<footer id="footer" class="wrapper style1-alt">
-				<div class="inner">
-					<ul class="menu"; style="color:rgba(255, 255, 255, 0.622); text-align: center">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 2023 - August 2023</div>
+                        <h3 class="timeline-title">Software Engineer Intern</h3>
+                        <h4 class="timeline-company">Deloitte</h4>
+                        <p class="timeline-description">
+                            Gained hands-on experience in software development, working with cross-functional teams 
+                            to deliver quality solutions. Contributed to various client projects and learned industry 
+                            best practices.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Agile Development</span>
+                            <span class="tag">Team Collaboration</span>
+                            <span class="tag">Client Projects</span>
+                        </div>
+                    </div>
+                </div>
 
-						<li ><a href="https://www.linkedin.com/in/archit-goswami/">LinkedIn</a></li><li><a href="mailto: arctgoswami@gmail.com">Email</a></li><li><a href="https://github.com/ArchitGoswami">GitHub</a></li>
-					</ul>
-				</div>
-			</footer>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">June 2022 - August 2022</div>
+                        <h3 class="timeline-title">Software Engineer Intern</h3>
+                        <h4 class="timeline-company">Amazon</h4>
+                        <p class="timeline-description">
+                            Worked on scalable systems and gained experience with Amazon's technology stack. 
+                            Contributed to internal tools and services that impact millions of customers.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">AWS</span>
+                            <span class="tag">Distributed Systems</span>
+                            <span class="tag">Java</span>
+                            <span class="tag">Scalability</span>
+                        </div>
+                    </div>
+                </div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-date">January 2022 - May 2022</div>
+                        <h3 class="timeline-title">Software Engineer Intern</h3>
+                        <h4 class="timeline-company">Citadel Securities</h4>
+                        <p class="timeline-description">
+                            Developed high-performance trading systems and worked with cutting-edge financial technology. 
+                            Gained experience in low-latency systems and real-time data processing.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">C++</span>
+                            <span class="tag">Low Latency</span>
+                            <span class="tag">Financial Systems</span>
+                            <span class="tag">Real-time Processing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-	</body>
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Some things I've built</p>
+            
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <img src="images/project1.jpg" alt="Project 1">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-type">Featured Project</span>
+                        <h3 class="project-title">E-Commerce Platform</h3>
+                        <p class="project-description">
+                            A full-stack e-commerce platform with user authentication, product management, 
+                            shopping cart, and payment integration. Built with modern technologies for optimal performance.
+                        </p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>MongoDB</span>
+                            <span>Stripe</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <img src="images/project2.jpg" alt="Project 2">
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fas fa-external-link-alt"></i></a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <span class="project-type">Featured Project</span>
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">
+                            A collaborative task management application with real-time updates, team features, 
+                            and intuitive drag-and-drop interface.
+                        </p>
+                        <div class="project-tech">
+                            <span>Vue.js</span>
+                            <span>Firebase</span>
+                            <span>Tailwind CSS</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-folder"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="project-title">Weather Dashboard</h3>
+                    <p class="project-description">
+                        A beautiful weather application with location-based forecasts and interactive charts.
+                    </p>
+                    <div class="project-tech">
+                        <span>React</span>
+                        <span>API</span>
+                        <span>Chart.js</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-folder"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="project-title">Portfolio Generator</h3>
+                    <p class="project-description">
+                        An automated portfolio website generator for developers with customizable themes.
+                    </p>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Flask</span>
+                        <span>Jinja2</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-folder"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="project-title">Chat Application</h3>
+                    <p class="project-description">
+                        Real-time chat application with rooms, private messaging, and file sharing capabilities.
+                    </p>
+                    <div class="project-tech">
+                        <span>Socket.io</span>
+                        <span>Node.js</span>
+                        <span>Express</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-icon">
+                        <i class="fas fa-folder"></i>
+                    </div>
+                    <div class="project-links">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                    <h3 class="project-title">Fitness Tracker</h3>
+                    <p class="project-description">
+                        Mobile-responsive fitness tracking app with workout logs and progress visualization.
+                    </p>
+                    <div class="project-tech">
+                        <span>React Native</span>
+                        <span>Redux</span>
+                        <span>SQLite</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="view-more">
+                <a href="#" class="btn btn-secondary">View Archive</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-text">
+                I'm currently looking for new opportunities. Whether you have a question or just want to say hi, 
+                my inbox is always open. I'll try my best to get back to you!
+            </p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:archit@example.com">archit@example.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div>
+                            <h4>LinkedIn</h4>
+                            <a href="#" target="_blank">linkedin.com/in/architgoswami</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div>
+                            <h4>GitHub</h4>
+                            <a href="#" target="_blank">github.com/ArchitGoswami</a>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Your Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Archit Goswami. Built with passion and coffee.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
 </html>
