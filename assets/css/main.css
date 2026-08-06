@@ -113,12 +113,12 @@ body {
 
 ::selection { background-color: var(--accent); color: var(--text-on-accent); }
 
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         animation-duration: 0.01ms !important;
         transition-duration: 0.01ms !important;
     }
-}
+} */
 
 /* ==========================================
    Typography
@@ -178,7 +178,7 @@ section { padding: var(--spacing-xl) 0; position: relative; }
 .cursor {
     display: inline-block;
     color: var(--accent);
-    animation: blink 3.5s step-end infinite;
+    animation: blink 1s step-end infinite;
 }
 @keyframes blink { 0%, 60% { opacity: 1; } 61%, 100% { opacity: 0; } }
 
