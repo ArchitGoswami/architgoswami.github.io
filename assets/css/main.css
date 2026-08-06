@@ -626,6 +626,73 @@ section { padding: var(--spacing-xl) 0; position: relative; }
     transition: var(--transition-fast);
 }
 
+/* ==========================================
+   Certifications
+   ========================================== */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.75rem;
+    margin-top: var(--spacing-lg);
+}
+
+.cert-card {
+    display: flex;
+    gap: 1.25rem;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--accent);
+}
+
+.cert-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-sm);
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-icon i { font-size: 1.3rem; color: var(--text-on-accent); }
+
+.cert-title { margin-bottom: 0.2rem; }
+
+.cert-issuer {
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.cert-description {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.cert-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-dim);
+    transition: var(--transition-fast);
+}
+
+.cert-link:hover { color: var(--accent); }
+
 .tag:hover {
     background: var(--accent);
     color: var(--text-on-accent);
@@ -671,6 +738,7 @@ section { padding: var(--spacing-xl) 0; position: relative; }
 .project-title { margin-bottom: 0.4rem; }
 .project-description { margin-bottom: 0.85rem; font-size: 0.98rem; }
 .project-tech { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
+.project-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
 
 /* ==========================================
    Contact

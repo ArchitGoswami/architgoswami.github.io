@@ -24,6 +24,7 @@
                 <li><a href="#home" class="nav-link active" data-nav="home">Home</a></li>
                 <li><a href="#about" class="nav-link" data-nav="about">About</a></li>
                 <li><a href="#experience" class="nav-link" data-nav="experience">Experience</a></li>
+                <li><a href="#certifications" class="nav-link" data-nav="certifications">Certifications</a></li>
                 <li><a href="#projects" class="nav-link" data-nav="projects">Projects</a></li>
                 <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
                 <span class="nav-pill" aria-hidden="true"></span>
@@ -201,15 +202,140 @@
         </div>
     </section>
 
+    <!-- Certifications Section -->
+<section id="certifications" class="certifications">
+    <div class="container">
+        <h2 class="section-title" data-reveal>Certifications</h2>
+
+        <div class="cert-grid">
+
+            <div class="cert-card" data-reveal>
+                <div class="cert-icon"><i class="fas fa-robot"></i></div>
+                <div class="cert-body">
+                    <h3 class="cert-title">Fundamentals of Building AI Agents</h3>
+                    <h4 class="cert-issuer">IBM</h4>
+                    <p class="cert-description">
+                        Covers designing AI agents that reason and act independently, including tool
+                        calling/chaining, LangChain-based agent workflows for data analysis and
+                        visualization, and prompt engineering best practices for agentic systems.
+                    </p>
+                    <a href="https://www.coursera.org/account/accomplishments/verify/XOISPD2O0GFD" class="cert-link" target="_blank" rel="noopener noreferrer">
+                        Verify Credential <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="cert-card" data-reveal>
+                <div class="cert-icon"><i class="fas fa-cloud"></i></div>
+                <div class="cert-body">
+                    <h3 class="cert-title">OCI Certified Foundations Associate</h3>
+                    <h4 class="cert-issuer">Oracle</h4>
+                    <p class="cert-description">
+                        Validates foundational knowledge of core OCI services (Compute, Storage,
+                        Networking, Database, Analytics, AI, and Observability), OCI security/identity
+                        model, billing, and governance.
+                    </p>
+                    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=801E12AD889359A05215354547901A71440456FF6AFDA29681CDDF0FFB4805E2" class="cert-link" target="_blank" rel="noopener noreferrer">
+                        Verify Credential <i class="fas fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title" data-reveal>Featured Projects</h2>
 
-            <div class="project-placeholder" data-reveal>
-                <i class="fas fa-hammer placeholder-icon"></i>
-                <p class="placeholder-text">This section is actively being built<span class="cursor">_</span></p>
+            <div class="projects-grid">
+    
+    <article class="project" data-reveal>
+        <div class="project-media">
+            <div class="window">
+                <div class="window-bar">
+                    <div class="window-dots"><span></span><span></span><span></span></div>
+                    <div class="window-tab">architgoswami.com/CharacterClusterRecommender/</div>
+                </div>
+                <div class="window-body">
+                    <img src="assets/images/characterClusterRecommender.png" alt="Character Cluster Recommender preview">
+                </div>
             </div>
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">Character Cluster Recommender</h3>
+            <p class="project-description">
+                A character similarity search and recommendation tool built on TV Tropes data — crawls
+                TVTropes, IMDb, and Fandom, clusters character tropes using SBERT embeddings and HDBSCAN,
+                and surfaces similar characters via a CLI and web frontend.
+            </p>
+            <div class="project-tech">
+                <span class="tag">Python</span>
+                <span class="tag">scikit-learn</span>
+                <span class="tag">SBERT</span>
+                <span class="tag">Flask</span>
+            </div>
+            <div class="project-links">
+                <a href="https://architgoswami.com/CharacterClusterRecommender/docs/web/index.html" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Live Site <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a href="https://github.com/ArchitGoswami/CharacterClusterRecommender" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </article>
+         
+    <article class="project" data-reveal>
+        <div class="project-media">
+            <div class="window">
+                <div class="window-bar">
+                    <div class="window-dots"><span></span><span></span><span></span></div>
+                    <div class="window-tab">twproject.vercel.app</div>
+                </div>
+                <div class="window-body">
+                    <img src="assets/images/tommyWestphallProject.png" alt="Tommy Westphall Project preview">
+                </div>
+            </div>
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">Tommy Westphall Project</h3>
+            <p class="project-description">
+                An attempt to build an interactive node graph connecting every piece of entertainment,
+                inspired by the Tommy Westphall Universe theory.
+            </p>
+            <div class="project-tech">
+                <span class="tag">HTML</span>
+                <span class="tag">Data Visualization</span>
+            </div>
+            <div class="project-links">
+                <a href="https://twproject.vercel.app/" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Live Site <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a href="https://github.com/tommyWestphallProject/tommyWestphallProject" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </article>
+
+    <article class="project" data-reveal>
+        <div class="project-media">
+        </div>
+        <div class="project-info">
+            <h3 class="project-title">Nav</h3>
+            <p class="project-description">
+                An iOS app built at HackPSU Spring 2019 that helps cruise-ship passengers avoid crowds by
+                showing real-time amenity traffic, so they always know where to go next.
+            </p>
+            <div class="project-tech">
+                <span class="tag">Swift</span>
+                <span class="tag">Python</span>
+                <span class="tag">Flask</span>
+                <span class="tag">Xcode</span>
+            </div>
+            <div class="project-links">
+                <a href="https://devpost.com/software/nav-7ldk8u" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Devpost <i class="fas fa-arrow-up-right-from-square"></i></a>
+                <a href="https://github.com/KingEinstein919/HackPsu2019" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </article>
+
+</div>
 
             <!--
             To add a project, duplicate a .project block inside .projects-grid below,
