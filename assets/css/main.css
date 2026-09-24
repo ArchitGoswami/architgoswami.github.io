@@ -805,6 +805,17 @@ section { padding: var(--spacing-xl) 0; position: relative; }
     margin-bottom: 0.4rem;
     min-height: 1.3em;
 }
+.project-award {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    margin-bottom: 0.45rem;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--accent);
+}
+.project-award i { font-size: 0.78rem; }
 .project-description {
     margin-bottom: 0.85rem;
     font-size: 0.98rem;
