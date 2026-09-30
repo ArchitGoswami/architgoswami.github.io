@@ -754,10 +754,6 @@ main,
     .nav-link { font-size: 0.8125rem; }
 }
 
-@media (max-width: 980px) {
-    .btn-header { display: none; }
-}
-
 @media (max-width: 760px) {
     .hamburger { display: flex; }
 
