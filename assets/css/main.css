@@ -331,9 +331,20 @@ main,
 }
 
 .section-title {
+    display: inline-block;
     font-size: clamp(2.5rem, 5.4vw, 3.75rem);
     line-height: 1.05;
     letter-spacing: -0.04em;
+    background: linear-gradient(to bottom right, #fff 30%, rgba(255, 255, 255, 0.4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+[data-theme="light"] .section-title {
+    background: linear-gradient(to bottom right, #000 30%, rgba(0, 0, 0, 0.4));
+    -webkit-background-clip: text;
+    background-clip: text;
 }
 
 .section-copy {
@@ -437,7 +448,9 @@ main,
     line-height: 1.3;
 }
 
-.info-card:hover { border-color: color-mix(in srgb, var(--fg) 35%, var(--border)); }
+#certifications .info-card > .btn {
+    margin-top: auto;
+}
 
 .is-featured,
 .is-featured:hover {
