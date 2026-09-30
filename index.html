@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archit Goswami — Software Developer</title>
     <meta name="description" content="Archit Goswami — back-end & cloud developer specializing in scalable, distributed systems.">
+    <meta name="theme-color" content="#000000">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="assets/images/FaviconTabImg.jpg">
+    <script>
+        try {
+            document.documentElement.setAttribute('data-theme', localStorage.getItem('theme') || 'dark');
+        } catch (e) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+    </script>
 </head>
 <body>
+    <canvas id="particles" class="particles" aria-hidden="true"></canvas>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">
-                <span class="logo-mark">AG</span>
-                <span class="logo-name">Archit Goswami</span>
-            </a>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#home" class="logo">Archit Goswami</a>
 
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="nav-link active" data-nav="home">Home</a></li>
@@ -27,487 +34,437 @@
                 <li><a href="#certifications" class="nav-link" data-nav="certifications">Certifications</a></li>
                 <li><a href="#projects" class="nav-link" data-nav="projects">Projects</a></li>
                 <li><a href="#contact" class="nav-link" data-nav="contact">Contact</a></li>
-                <span class="nav-pill" aria-hidden="true"></span>
             </ul>
 
             <div class="nav-actions">
                 <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                    <i class="fas fa-sun"></i>
+                    <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="4"></circle>
+                        <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+                    </svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5z"></path>
+                    </svg>
                 </button>
-                <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <a href="#contact" class="btn btn-secondary btn-header">Get In Touch</a>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
             </div>
         </div>
-    </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <p class="eyebrow" data-reveal>Hi, I am </p>
-                <h1 class="hero-title" data-reveal> Archit Goswami <span class="cursor">_</span></h1>
-                <!--<h2 class="hero-subtitle" data-reveal>I enjoy solving complex problems </h2>-->
-                <p class="hero-description" data-reveal>
-                    I'm a back-end & cloud developer who loves building scalable systems and turning
+    <main>
+        <section id="home" class="hero">
+            <div class="container hero-inner">
+                <p class="eyebrow">Hi, I am</p>
+
+                <h1>Archit Goswami</h1>
+
+                <p class="lede">
+                    I'm a back-end &amp; cloud developer who loves building scalable systems and turning
                     messy problems into simple, dependable solutions.
                 </p>
-                <div class="hero-buttons" data-reveal>
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
+
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn-primary">View My Work <span aria-hidden="true">→</span></a>
                     <a href="#contact" class="btn btn-secondary">Get In Touch</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title" data-reveal>About Me</h2>
-
-            <div class="about-content">
-                <div class="about-text" data-reveal>
-                    <p>
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <h2 class="section-title">About Me</h2>
+                    <p class="section-copy">
                         I am a back-end cloud developer specializing in designing scalable, cloud-based
                         solutions.
                     </p>
-                    <p>Here are a few technologies I've been working with recently:</p>
-
-                    <ul class="skills-grid" id="skillsGrid">
-                        <li><i class="fas fa-code"></i> Java</li>
-                        <li><i class="fas fa-code"></i> Python</li>
-                        <li><i class="fas fa-code"></i> Gradle</li>
-                        <li><i class="fas fa-code"></i> Bash</li>
-                        <li><i class="fas fa-code"></i> Terraform</li>
-                        <li><i class="fas fa-code"></i> SQL</li>
-                        <li><i class="fas fa-code"></i> Docker</li>
-                        <li><i class="fas fa-code"></i> Maven</li>
-                        <li><i class="fas fa-code"></i> Grafana</li>
-                        <li><i class="fas fa-code"></i> React</li>
-                        <li><i class="fas fa-code"></i> Node.js</li>
-                        <li><i class="fas fa-code"></i> Git</li>
-                    </ul>
                 </div>
 
-                <div class="about-stats" data-reveal>
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fas fa-code"></i></div>
-                        <h3 class="stat-number">25+</h3>
-                        <p class="stat-label">Projects Completed</p>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-icon"><i class="fas fa-laptop-code"></i></div>
-                        <h3 class="stat-number">3+</h3>
-                        <p class="stat-label">Years Experience</p>
+                <div class="card-grid card-grid--stats">
+                    <article class="info-card stat-card" data-reveal>
+                        <div class="card-icon" aria-hidden="true"><i class="fas fa-code"></i></div>
+                        <p class="stat-number">25+</p>
+                        <h3>Projects Completed</h3>
+                    </article>
+                    <article class="info-card stat-card" data-reveal>
+                        <div class="card-icon" aria-hidden="true"><i class="fas fa-laptop-code"></i></div>
+                        <p class="stat-number">3+</p>
+                        <h3>Years Experience</h3>
+                    </article>
+                </div>
+
+                <p class="tech-label" id="tech-label" data-reveal>Here are a few technologies I've been working with recently:</p>
+                <div class="logo-marquee" aria-labelledby="tech-label">
+                    <div class="logo-track">
+                        <ul>
+                            <li><img src="assets/icons/java.svg" alt="Java"></li>
+                            <li><img src="assets/icons/python.svg" alt="Python"></li>
+                            <li><img src="assets/icons/gradle.svg" alt="Gradle"></li>
+                            <li><img src="assets/icons/bash.svg" alt="Bash"></li>
+                            <li><img src="assets/icons/terraform.svg" alt="Terraform"></li>
+                            <li><img src="assets/icons/sql.svg" alt="SQL"></li>
+                            <li><img src="assets/icons/docker.svg" alt="Docker"></li>
+                            <li><img src="assets/icons/maven.svg" alt="Maven"></li>
+                            <li><img src="assets/icons/grafana.svg" alt="Grafana"></li>
+                            <li><img src="assets/icons/react.svg" alt="React"></li>
+                            <li><img src="assets/icons/nodejs.svg" alt="Node.js"></li>
+                            <li><img src="assets/icons/git.svg" alt="Git"></li>
+                        </ul>
+                        <ul aria-hidden="true">
+                            <li><img src="assets/icons/java.svg" alt=""></li>
+                            <li><img src="assets/icons/python.svg" alt=""></li>
+                            <li><img src="assets/icons/gradle.svg" alt=""></li>
+                            <li><img src="assets/icons/bash.svg" alt=""></li>
+                            <li><img src="assets/icons/terraform.svg" alt=""></li>
+                            <li><img src="assets/icons/sql.svg" alt=""></li>
+                            <li><img src="assets/icons/docker.svg" alt=""></li>
+                            <li><img src="assets/icons/maven.svg" alt=""></li>
+                            <li><img src="assets/icons/grafana.svg" alt=""></li>
+                            <li><img src="assets/icons/react.svg" alt=""></li>
+                            <li><img src="assets/icons/nodejs.svg" alt=""></li>
+                            <li><img src="assets/icons/git.svg" alt=""></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title" data-reveal>Experience and Education</h2>
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <h2 class="section-title">Experience and Education</h2>
+                </div>
 
-            <div class="timeline">
-
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">Jan 2026 - Present</div>
-                        <h3 class="timeline-title">M.S. in Engineering, Computer Science</h3>
-                        <h4 class="timeline-company">Johns Hopkins University</h4>
-                        <p class="timeline-description">
-                            Studying Machine learning, Neural Networks, Transformers, Information Retrieval, and Networking from some of the most revered faculty in the country.
-                            Part of Cataract Research studies under Dr. Swaroop Vedula and Dr. Vishal Patel.
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">Neural Networks</span>
-                            <span class="tag">Research</span>
-                            <span class="tag">Computer Vision</span>
-                            <span class="tag">Information Retrieval</span>
+                <div class="timeline">
+                    <article class="timeline-item" data-reveal>
+                        <span class="timeline-marker" aria-hidden="true"></span>
+                        <div class="info-card is-featured">
+                            <p class="card-meta">Jan 2026 - Present</p>
+                            <h3>M.S. in Engineering, Computer Science</h3>
+                            <p class="card-org">Johns Hopkins University</p>
+                            <p>
+                                Studying Machine learning, Neural Networks, Transformers, Information Retrieval, and Networking from some of the most revered faculty in the country.
+                                Part of Cataract Research studies under Dr. Swaroop Vedula and Dr. Vishal Patel.
+                            </p>
+                            <ul class="tags">
+                                <li>Neural Networks</li>
+                                <li>Research</li>
+                                <li>Computer Vision</li>
+                                <li>Information Retrieval</li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">May 2022 - Jan 2025</div>
-                        <h3 class="timeline-title">Software Engineer</h3>
-                        <h4 class="timeline-company">Oracle America Inc.</h4>
-                        <p class="timeline-description">
-                            Delivered production level projects in automated deployment / Infrastructure as code (DevOps + CICD), metrics, state systems, and automated hardware triage and repair.
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">Infrastructure as Code (IaC)</span>
-                            <span class="tag">Project Delivery</span>
-                            <span class="tag">Metrics and Alarms</span>
-                            <span class="tag">Cloud computing</span>
+                    <article class="timeline-item" data-reveal>
+                        <span class="timeline-marker" aria-hidden="true"></span>
+                        <div class="info-card">
+                            <p class="card-meta">May 2022 - Jan 2025</p>
+                            <h3>Software Engineer</h3>
+                            <p class="card-org">Oracle America Inc.</p>
+                            <p>
+                                Delivered production level projects in automated deployment / Infrastructure as code (DevOps + CICD), metrics, state systems, and automated hardware triage and repair.
+                            </p>
+                            <ul class="tags">
+                                <li>Infrastructure as Code (IaC)</li>
+                                <li>Project Delivery</li>
+                                <li>Metrics and Alarms</li>
+                                <li>Cloud computing</li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">May 2021 - September 2021</div>
-                        <h3 class="timeline-title">Software Engineer Intern</h3>
-                        <h4 class="timeline-company">Oracle America Inc.</h4>
-                        <p class="timeline-description">
-                            Worked on scalable systems and gained experience with Oracle's technology stack.
-                            Contributed to internal tools and created automated report for testing vulnerability using a novel recursive API fuzzer test generator.
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">Distributed Systems</span>
-                            <span class="tag">Java</span>
-                            <span class="tag">Scalability</span>
-                            <span class="tag">API testing</span>
+                    <article class="timeline-item" data-reveal>
+                        <span class="timeline-marker" aria-hidden="true"></span>
+                        <div class="info-card">
+                            <p class="card-meta">May 2021 - September 2021</p>
+                            <h3>Software Engineer Intern</h3>
+                            <p class="card-org">Oracle America Inc.</p>
+                            <p>
+                                Worked on scalable systems and gained experience with Oracle's technology stack.
+                                Contributed to internal tools and created automated report for testing vulnerability using a novel recursive API fuzzer test generator.
+                            </p>
+                            <ul class="tags">
+                                <li>Distributed Systems</li>
+                                <li>Java</li>
+                                <li>Scalability</li>
+                                <li>API testing</li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">January 2021 - May 2022</div>
-                        <h3 class="timeline-title">Project Lead and Undergraduate Research Assistant</h3>
-                        <h4 class="timeline-company"> Shriver Anthropological Genomics Lab</h4>
-                        <p class="timeline-description">
-                           Restructuring and improving Fibermorph along with hiring and leading for a 4-member dev team under Dr. Tina Lasisi to improve the Fibermorph python package for automated analysis of hair morphology.
-                        </p>
-                        <div class="timeline-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">Computer Vision</span>
-                            <span class="tag">Research</span>
-                            <span class="tag">Leading Teams</span>
+                    <article class="timeline-item" data-reveal>
+                        <span class="timeline-marker" aria-hidden="true"></span>
+                        <div class="info-card">
+                            <p class="card-meta">January 2021 - May 2022</p>
+                            <h3>Project Lead and Undergraduate Research Assistant</h3>
+                            <p class="card-org">Shriver Anthropological Genomics Lab</p>
+                            <p>
+                                Restructuring and improving Fibermorph along with hiring and leading for a 4-member dev team under Dr. Tina Lasisi to improve the Fibermorph python package for automated analysis of hair morphology.
+                            </p>
+                            <ul class="tags">
+                                <li>Python</li>
+                                <li>Computer Vision</li>
+                                <li>Research</li>
+                                <li>Leading Teams</li>
+                            </ul>
                         </div>
-                    </div>
-                </div>
+                    </article>
 
-                <div class="timeline-item" data-reveal>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-date">August 2018 - May 2022</div>
-                        <h3 class="timeline-title">B.S. in Computer Science, Minor: Engineering Leadership and Development</h3>
-                        <h4 class="timeline-company">The Pennsylvania State University</h4>
-                    </div>
+                    <article class="timeline-item" data-reveal>
+                        <span class="timeline-marker" aria-hidden="true"></span>
+                        <div class="info-card">
+                            <p class="card-meta">August 2018 - May 2022</p>
+                            <h3>B.S. in Computer Science, Minor: Engineering Leadership and Development</h3>
+                            <p class="card-org">The Pennsylvania State University</p>
+                        </div>
+                    </article>
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Certifications Section -->
-<section id="certifications" class="certifications">
-    <div class="container">
-        <h2 class="section-title" data-reveal>Certifications</h2>
+        <section id="certifications" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <h2 class="section-title">Certifications</h2>
+                </div>
 
-        <div class="cert-grid">
+                <div class="card-grid card-grid--stats">
+                    <article class="info-card" data-reveal>
+                        <div class="card-icon" aria-hidden="true"><i class="fas fa-robot"></i></div>
+                        <h3>Fundamentals of Building AI Agents</h3>
+                        <p class="card-org">IBM</p>
+                        <p>
+                            Covers designing AI agents that reason and act independently, including tool
+                            calling/chaining, LangChain-based agent workflows for data analysis and
+                            visualization, and prompt engineering best practices for agentic systems.
+                        </p>
+                        <a href="https://www.coursera.org/account/accomplishments/verify/XOISPD2O0GFD" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
+                            Verify Credential
+                        </a>
+                    </article>
 
-            <div class="cert-card" data-reveal>
-                <div class="cert-icon"><i class="fas fa-robot"></i></div>
-                <div class="cert-body">
-                    <h3 class="cert-title">Fundamentals of Building AI Agents</h3>
-                    <h4 class="cert-issuer">IBM</h4>
-                    <p class="cert-description">
-                        Covers designing AI agents that reason and act independently, including tool
-                        calling/chaining, LangChain-based agent workflows for data analysis and
-                        visualization, and prompt engineering best practices for agentic systems.
+                    <article class="info-card" data-reveal>
+                        <div class="card-icon" aria-hidden="true"><i class="fas fa-cloud"></i></div>
+                        <h3>OCI Certified Foundations Associate</h3>
+                        <p class="card-org">Oracle</p>
+                        <p>
+                            Validates foundational knowledge of core OCI services (Compute, Storage,
+                            Networking, Database, Analytics, AI, and Observability), OCI security/identity
+                            model, billing, and governance.
+                        </p>
+                        <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=801E12AD889359A05215354547901A71440456FF6AFDA29681CDDF0FFB4805E2" class="btn btn-primary btn-block" target="_blank" rel="noopener noreferrer">
+                            Verify Credential
+                        </a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <h2 class="section-title">Featured Projects</h2>
+                </div>
+
+                <div class="card-grid">
+                    <article class="project-card span-2" data-reveal>
+                        <div class="project-media">
+                            <iframe
+                                src="https://www.youtube-nocookie.com/embed/tmNatham2ZQ"
+                                title="BeMore Baltimore demo"
+                                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen
+                                loading="lazy"
+                            ></iframe>
+                        </div>
+                        <div class="project-body">
+                            <h3>BeMore Baltimore</h3>
+                            <p class="project-award"><i class="fas fa-trophy" aria-hidden="true"></i> 3rd place · DSAI + marimo Data Visualization track</p>
+                            <p>
+                                A HopHacks 2026 data visualization that scores all 55 Baltimore neighborhoods on 311
+                                need versus city response, then zooms from the city map down to the street address of
+                                every still-open request.
+                            </p>
+                            <ul class="tags">
+                                <li>Python</li>
+                                <li>marimo</li>
+                                <li>Polars</li>
+                                <li>scikit-learn</li>
+                            </ul>
+                            <div class="project-actions">
+                                <a href="https://devpost.com/software/bmore-city-watch" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Devpost <i class="fas fa-arrow-up-right-from-square"></i></a>
+                                <a href="https://github.com/xpw1337/HopHacks26" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-reveal>
+                        <div class="project-media">
+                            <img src="assets/images/pokerProject.png" alt="The Poker Project table preview">
+                        </div>
+                        <div class="project-body">
+                            <h3>The Poker Project</h3>
+                            <p>
+                                Texas hold'em in the browser. One rules engine runs three tables: opponents you
+                                tune, a room code for friends, and a live dealer that follows a real deck.
+                            </p>
+                            <ul class="tags">
+                                <li>Python</li>
+                                <li>FastAPI</li>
+                                <li>WebSockets</li>
+                                <li>JavaScript</li>
+                            </ul>
+                            <div class="project-actions">
+                                <a href="https://pokerproject.architgoswami.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site <i class="fas fa-arrow-up-right-from-square"></i></a>
+                                <a href="https://github.com/ArchitGoswami/poker_project" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-reveal>
+                        <div class="project-media">
+                            <img src="assets/images/characterClusterRecommender.png" alt="Character Cluster Recommender preview">
+                        </div>
+                        <div class="project-body">
+                            <h3>Character Cluster Recommender</h3>
+                            <p>
+                                A character similarity search and recommendation tool built on TV Tropes data — crawls
+                                TVTropes, IMDb, and Fandom, clusters character tropes using SBERT embeddings and HDBSCAN,
+                                and surfaces similar characters via a CLI and web frontend.
+                            </p>
+                            <ul class="tags">
+                                <li>Python</li>
+                                <li>scikit-learn</li>
+                                <li>SBERT</li>
+                                <li>Flask</li>
+                            </ul>
+                            <div class="project-actions">
+                                <a href="https://characterclusterrecommender.architgoswami.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site <i class="fas fa-arrow-up-right-from-square"></i></a>
+                                <a href="https://github.com/ArchitGoswami/CharacterClusterRecommender" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-reveal>
+                        <div class="project-media">
+                            <img src="assets/images/tommyWestphallProject.png" alt="Tommy Westphall Project preview">
+                        </div>
+                        <div class="project-body">
+                            <h3>Tommy Westphall Project</h3>
+                            <p>
+                                An attempt to build an interactive node graph connecting every piece of entertainment,
+                                inspired by the Tommy Westphall Universe theory.
+                            </p>
+                            <ul class="tags">
+                                <li>HTML</li>
+                                <li>Data Visualization</li>
+                            </ul>
+                            <div class="project-actions">
+                                <a href="https://twproject.architgoswami.com/" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Live Site <i class="fas fa-arrow-up-right-from-square"></i></a>
+                                <a href="https://github.com/tommyWestphallProject/tommyWestphallProject" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="project-card" data-reveal>
+                        <div class="project-media project-media--logo">
+                            <img src="assets/images/nav.png" alt="Nav app logo">
+                        </div>
+                        <div class="project-body">
+                            <h3>Nav</h3>
+                            <p>
+                                An iOS app built at HackPSU Spring 2019 that helps cruise-ship passengers avoid crowds by
+                                showing real-time amenity traffic, so they always know where to go next.
+                            </p>
+                            <ul class="tags">
+                                <li>Swift</li>
+                                <li>Python</li>
+                                <li>Flask</li>
+                                <li>Xcode</li>
+                            </ul>
+                            <div class="project-actions">
+                                <a href="https://devpost.com/software/nav-7ldk8u" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Devpost <i class="fas fa-arrow-up-right-from-square"></i></a>
+                                <a href="https://github.com/KingEinstein919/HackPsu2019" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <h2 class="section-title">Get In Touch</h2>
+                    <p class="section-copy">
+                        I'm currently looking for new opportunities. Whether you have a question or just want to say hi,
+                        my inbox is always open. I'll try my best to get back to you!
                     </p>
-                    <a href="https://www.coursera.org/account/accomplishments/verify/XOISPD2O0GFD" class="cert-link" target="_blank" rel="noopener noreferrer">
-                        Verify Credential <i class="fas fa-arrow-up-right-from-square"></i>
-                    </a>
                 </div>
-            </div>
 
-            <div class="cert-card" data-reveal>
-                <div class="cert-icon"><i class="fas fa-cloud"></i></div>
-                <div class="cert-body">
-                    <h3 class="cert-title">OCI Certified Foundations Associate</h3>
-                    <h4 class="cert-issuer">Oracle</h4>
-                    <p class="cert-description">
-                        Validates foundational knowledge of core OCI services (Compute, Storage,
-                        Networking, Database, Analytics, AI, and Observability), OCI security/identity
-                        model, billing, and governance.
-                    </p>
-                    <a href="https://catalog-education.oracle.com/ords/certview/sharebadge?id=801E12AD889359A05215354547901A71440456FF6AFDA29681CDDF0FFB4805E2" class="cert-link" target="_blank" rel="noopener noreferrer">
-                        Verify Credential <i class="fas fa-arrow-up-right-from-square"></i>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title" data-reveal>Featured Projects</h2>
-
-            <div class="projects-grid">
-
-    <article class="project" data-reveal>
-        <div class="project-media">
-            <div class="window">
-                <div class="window-bar">
-                    <div class="window-dots"><span></span><span></span><span></span></div>
-                    <div class="window-tab">devpost.com/software/bmore-city-watch</div>
-                </div>
-                <div class="window-body">
-                    <iframe
-                        src="https://www.youtube-nocookie.com/embed/tmNatham2ZQ"
-                        title="BeMore Baltimore demo"
-                        allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen
-                        loading="lazy"
-                    ></iframe>
-                </div>
-            </div>
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">BeMore Baltimore</h3>
-            <p class="project-award"><i class="fas fa-trophy" aria-hidden="true"></i> 3rd place · DSAI + marimo Data Visualization track</p>
-            <p class="project-description">
-                A HopHacks 2026 data visualization that scores all 55 Baltimore neighborhoods on 311
-                need versus city response, then zooms from the city map down to the street address of
-                every still-open request.
-            </p>
-            <div class="project-tech">
-                <span class="tag">Python</span>
-                <span class="tag">marimo</span>
-                <span class="tag">Polars</span>
-                <span class="tag">scikit-learn</span>
-            </div>
-            <div class="project-links">
-                <a href="https://devpost.com/software/bmore-city-watch" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Devpost <i class="fas fa-arrow-up-right-from-square"></i></a>
-                <a href="https://github.com/xpw1337/HopHacks26" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </article>
-
-    <article class="project" data-reveal>
-        <div class="project-media">
-            <div class="window">
-                <div class="window-bar">
-                    <div class="window-dots"><span></span><span></span><span></span></div>
-                    <div class="window-tab">pokerproject.architgoswami.com</div>
-                </div>
-                <div class="window-body">
-                    <img src="assets/images/pokerProject.png" alt="The Poker Project table preview">
-                </div>
-            </div>
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">The Poker Project</h3>
-            <p class="project-description">
-                Texas hold'em in the browser. One rules engine runs three tables: opponents you
-                tune, a room code for friends, and a live dealer that follows a real deck.
-            </p>
-            <div class="project-tech">
-                <span class="tag">Python</span>
-                <span class="tag">FastAPI</span>
-                <span class="tag">WebSockets</span>
-                <span class="tag">JavaScript</span>
-            </div>
-            <div class="project-links">
-                <a href="https://pokerproject.architgoswami.com/" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Live Site <i class="fas fa-arrow-up-right-from-square"></i></a>
-                <a href="https://github.com/ArchitGoswami/poker_project" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </article>
-    
-    <article class="project" data-reveal>
-        <div class="project-media">
-            <div class="window">
-                <div class="window-bar">
-                    <div class="window-dots"><span></span><span></span><span></span></div>
-                    <div class="window-tab">characterclusterrecommender.architgoswami.com</div>
-                </div>
-                <div class="window-body">
-                    <img src="assets/images/characterClusterRecommender.png" alt="Character Cluster Recommender preview">
-                </div>
-            </div>
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">Character Cluster Recommender</h3>
-            <p class="project-description">
-                A character similarity search and recommendation tool built on TV Tropes data — crawls
-                TVTropes, IMDb, and Fandom, clusters character tropes using SBERT embeddings and HDBSCAN,
-                and surfaces similar characters via a CLI and web frontend.
-            </p>
-            <div class="project-tech">
-                <span class="tag">Python</span>
-                <span class="tag">scikit-learn</span>
-                <span class="tag">SBERT</span>
-                <span class="tag">Flask</span>
-            </div>
-            <div class="project-links">
-                <a href="https://characterclusterrecommender.architgoswami.com/" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Live Site <i class="fas fa-arrow-up-right-from-square"></i></a>
-                <a href="https://github.com/ArchitGoswami/CharacterClusterRecommender" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </article>
-         
-    <article class="project" data-reveal>
-        <div class="project-media">
-            <div class="window">
-                <div class="window-bar">
-                    <div class="window-dots"><span></span><span></span><span></span></div>
-                    <div class="window-tab">twproject.architgoswami.com</div>
-                </div>
-                <div class="window-body">
-                    <img src="assets/images/tommyWestphallProject.png" alt="Tommy Westphall Project preview">
-                </div>
-            </div>
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">Tommy Westphall Project</h3>
-            <p class="project-description">
-                An attempt to build an interactive node graph connecting every piece of entertainment,
-                inspired by the Tommy Westphall Universe theory.
-            </p>
-            <div class="project-tech">
-                <span class="tag">HTML</span>
-                <span class="tag">Data Visualization</span>
-            </div>
-            <div class="project-links">
-                <a href="https://twproject.architgoswami.com/" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Live Site <i class="fas fa-arrow-up-right-from-square"></i></a>
-                <a href="https://github.com/tommyWestphallProject/tommyWestphallProject" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </article>
-
-    <article class="project" data-reveal>
-        <div class="project-media">
-            <div class="window">
-                <div class="window-bar">
-                    <div class="window-dots"><span></span><span></span><span></span></div>
-                    <div class="window-tab">devpost.com/software/nav-7ldk8u</div>
-                </div>
-                <div class="window-body window-body--logo">
-                    <img src="assets/images/nav.png" alt="Nav app logo">
-                </div>
-            </div>
-        </div>
-        <div class="project-info">
-            <h3 class="project-title">Nav</h3>
-            <p class="project-description">
-                An iOS app built at HackPSU Spring 2019 that helps cruise-ship passengers avoid crowds by
-                showing real-time amenity traffic, so they always know where to go next.
-            </p>
-            <div class="project-tech">
-                <span class="tag">Swift</span>
-                <span class="tag">Python</span>
-                <span class="tag">Flask</span>
-                <span class="tag">Xcode</span>
-            </div>
-            <div class="project-links">
-                <a href="https://devpost.com/software/nav-7ldk8u" class="btn btn-primary btn-sm" target="_blank" rel="noopener noreferrer">Devpost <i class="fas fa-arrow-up-right-from-square"></i></a>
-                <a href="https://github.com/KingEinstein919/HackPsu2019" class="btn btn-secondary btn-sm" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github"></i></a>
-            </div>
-        </div>
-    </article>
-
-</div>
-
-            <!--
-            To add a project, duplicate a .project block inside .projects-grid below,
-            following the structure Cătălin Onuțu's site uses: a preview image,
-            a title, description, tech tags and a "Check it" link.
-
-            <div class="projects-grid">
-                <article class="project" data-reveal>
-                    <div class="project-media">
-                        <img src="assets/images/project1.jpg" alt="Project preview">
+                <div class="contact-layout">
+                    <div class="contact-info" data-reveal>
+                        <a class="contact-item" href="mailto:arctgoswami@gmail.com">
+                            <span class="card-icon"><i class="fas fa-envelope"></i></span>
+                            <span>
+                                <strong>Email</strong>
+                                <span>arctgoswami@gmail.com</span>
+                            </span>
+                        </a>
+                        <a class="contact-item" href="https://www.linkedin.com/in/archit-goswami" target="_blank" rel="noopener noreferrer">
+                            <span class="card-icon"><i class="fab fa-linkedin"></i></span>
+                            <span>
+                                <strong>LinkedIn</strong>
+                                <span>linkedin.com/in/architgoswami</span>
+                            </span>
+                        </a>
+                        <a class="contact-item" href="https://github.com/ArchitGoswami" target="_blank" rel="noopener noreferrer">
+                            <span class="card-icon"><i class="fab fa-github"></i></span>
+                            <span>
+                                <strong>GitHub</strong>
+                                <span>github.com/ArchitGoswami</span>
+                            </span>
+                        </a>
                     </div>
-                    <div class="project-info">
-                        <h3 class="project-title">Project Name</h3>
-                        <p class="project-description">One or two sentences describing the project.</p>
-                        <div class="project-tech">
-                            <span class="tag">Tech 1</span>
-                            <span class="tag">Tech 2</span>
+
+                    <form class="contact-form info-card" data-reveal>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input id="name" name="name" type="text" placeholder="Your Name" required>
                         </div>
-                        <a href="#" class="btn btn-primary btn-sm" target="_blank">Check it <i class="fas fa-arrow-up-right-from-square"></i></a>
-                    </div>
-                </article>
-            </div>
-            -->
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title" data-reveal>Get In Touch</h2>
-            <p class="section-subtitle" data-reveal>
-                I'm currently looking for new opportunities. Whether you have a question or just want to say hi,
-                my inbox is always open. I'll try my best to get back to you!
-            </p>
-
-            <div class="contact-content">
-                <div class="contact-info" data-reveal>
-                    <a class="contact-item" href="mailto:arctgoswami@gmail.com" target="_blank" rel="noopener noreferrer">
-                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-                        <div>
-                            <h4>Email</h4>
-                            <span>arctgoswami@gmail.com</span>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" placeholder="Your Email" required>
                         </div>
-                    </a>
-                    <a class="contact-item" href="https://www.linkedin.com/in/archit-goswami" target="_blank" rel="noopener noreferrer">
-                        <div class="contact-icon"><i class="fab fa-linkedin"></i></div>
-                        <div>
-                            <h4>LinkedIn</h4>
-                            <span>linkedin.com/in/architgoswami</span>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input id="subject" name="subject" type="text" placeholder="Subject" required>
                         </div>
-                    </a>
-                    <a class="contact-item" href="https://github.com/ArchitGoswami" target="_blank" rel="noopener noreferrer">
-                        <div class="contact-icon"><i class="fab fa-github"></i></div>
-                        <div>
-                            <h4>GitHub</h4>
-                            <span>github.com/ArchitGoswami</span>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
                         </div>
-                    </a>
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </form>
                 </div>
-
-                <form class="contact-form" data-reveal>
-                    <div class="form-group">
-                        <label>Name</label>
-                        <input type="text" placeholder="Your Name" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" placeholder="Your Email" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Subject</label>
-                        <input type="text" placeholder="Subject" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea placeholder="Your Message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </form>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container footer-content">
-            <p>&copy; 2026 Archit Goswami. Built with love.</p>
+    <footer class="site-footer">
+        <div class="container footer-bottom">
             <div class="social-links">
                 <a href="https://github.com/ArchitGoswami" aria-label="GitHub" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/archit-goswami" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-                <a href="https://x.com/Goswami_Archit" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://x.com/Goswami_Archit" aria-label="Twitter" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                 <a href="mailto:arctgoswami@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
             </div>
+            <p>&copy; 2026 Archit Goswami. Built with love.</p>
         </div>
     </footer>
 

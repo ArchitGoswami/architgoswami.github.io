@@ -1,164 +1,102 @@
-// ==========================================
-// ARCHIT GOSWAMI — PORTFOLIO JS
-// Theming, nav, scroll-spy + Motion-powered animation
-// ==========================================
+// Portfolio interactions: theme, nav, reveal, particles, contact form.
 
 document.documentElement.classList.remove('no-js');
 
-/* ---------- Motion (motion.dev) — loaded from CDN, degrades gracefully ---------- */
-let animate, inView, stagger;
+let animate, inView;
 try {
-    ({ animate, inView, stagger } = await import('https://cdn.jsdelivr.net/npm/motion@11.15.0/+esm'));
+    ({ animate, inView } = await import('https://cdn.jsdelivr.net/npm/motion@11.15.0/+esm'));
 } catch (err) {
     console.warn('Motion library failed to load, falling back to CSS-only state.', err);
 }
 
-/* ---------- Theme Management ---------- */
-const themeToggle = document.getElementById('themeToggle');
 const html = document.documentElement;
-
-const currentTheme = localStorage.getItem('theme') || 'dark';
-html.setAttribute('data-theme', currentTheme);
+const themeToggle = document.getElementById('themeToggle');
 
 themeToggle.addEventListener('click', () => {
     const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
     html.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
-    if (animate) animate(themeToggle, { scale: [0.85, 1] }, { duration: 0.3, easing: 'ease-out' });
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', next === 'light' ? '#ffffff' : '#000000');
 });
 
-/* ---------- Smooth Scrolling ---------- */
-document.querySelectorAll('a[href^="#"]').forEach(anchorEl => {
+document.querySelectorAll('a[href^="#"]').forEach((anchorEl) => {
     anchorEl.addEventListener('click', function (e) {
-        const targetId = this.getAttribute('href');
-        const target = document.querySelector(targetId);
-        if (target) {
-            e.preventDefault();
-            const headerOffset = 100;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-        }
+        const target = document.querySelector(this.getAttribute('href'));
+        if (!target) return;
+        e.preventDefault();
+        const top = target.getBoundingClientRect().top + window.pageYOffset - 72;
+        window.scrollTo({ top, behavior: 'smooth' });
     });
 });
 
-/* ---------- Mobile Menu ---------- */
 const hamburger = document.getElementById('hamburger');
 const navLinksEl = document.getElementById('navLinks');
 
-if (hamburger) {
-    hamburger.addEventListener('click', () => {
-        navLinksEl.classList.toggle('active');
-        hamburger.classList.toggle('active');
-    });
-
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinksEl.classList.remove('active');
-            hamburger.classList.remove('active');
-        });
-    });
+function closeMenu() {
+    navLinksEl.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
 }
 
-/* ---------- Sliding nav pill (mirrors the highlighted-tab look) ---------- */
-const navPill = document.querySelector('.nav-pill');
-const navLinkEls = Array.from(document.querySelectorAll('.nav-link'));
-
-function movePillTo(link) {
-    if (!navPill || !link) return;
-    const pillParentRect = navPill.parentElement.getBoundingClientRect();
-    const linkRect = link.getBoundingClientRect();
-    const x = linkRect.left - pillParentRect.left - 3;
-    const width = linkRect.width;
-
-    if (animate) {
-        animate(navPill, { x, width }, { duration: 0.35, easing: [0.22, 1, 0.36, 1] });
-    } else {
-        navPill.style.transform = `translateX(${x}px)`;
-        navPill.style.width = `${width}px`;
-    }
-}
-
-function setActiveLink(id) {
-    navLinkEls.forEach(link => {
-        link.classList.toggle('active', link.dataset.nav === id);
-    });
-    const activeLink = navLinkEls.find(link => link.dataset.nav === id);
-    movePillTo(activeLink);
-}
-
-window.addEventListener('load', () => setActiveLink('home'));
-window.addEventListener('resize', () => {
-    const active = navLinkEls.find(link => link.classList.contains('active'));
-    movePillTo(active);
+hamburger.addEventListener('click', () => {
+    const open = navLinksEl.classList.toggle('open');
+    hamburger.classList.toggle('active', open);
+    hamburger.setAttribute('aria-expanded', String(open));
 });
 
-/* ---------- Active Navigation on Scroll ---------- */
-const sections = document.querySelectorAll('section[id]');
+document.querySelectorAll('.nav-link').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+});
+
+const navLinkEls = Array.from(document.querySelectorAll('.nav-link'));
+const sections = document.querySelectorAll('main section[id]');
+
+function setActiveLink(id) {
+    navLinkEls.forEach((link) => {
+        const on = link.dataset.nav === id;
+        link.classList.toggle('active', on);
+        if (on) link.setAttribute('aria-current', 'true');
+        else link.removeAttribute('aria-current');
+    });
+}
 
 function activateNavOnScroll() {
     const scrollY = window.pageYOffset;
-    sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 140;
-        const sectionId = section.getAttribute('id');
-        if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-            setActiveLink(sectionId);
-        }
+    let current = 'home';
+    sections.forEach((section) => {
+        if (scrollY >= section.offsetTop - 140) current = section.id;
     });
+    setActiveLink(current);
 }
+
 window.addEventListener('scroll', activateNavOnScroll, { passive: true });
+window.addEventListener('load', activateNavOnScroll);
 
-/* ---------- Navbar shadow on scroll ---------- */
-const navbar = document.querySelector('.navbar');
-window.addEventListener('scroll', () => {
-    navbar.style.boxShadow = window.scrollY > 30 ? 'var(--shadow-xl)' : 'var(--shadow-lg)';
-}, { passive: true });
-
-/* ---------- Scroll-reveal animations ---------- */
 const revealEls = document.querySelectorAll('[data-reveal]');
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-if (animate && inView) {
+if (!reduceMotion && animate && inView) {
     revealEls.forEach((el, i) => {
         inView(el, () => {
             animate(
                 el,
-                { opacity: [0, 1], transform: ['translateY(24px)', 'translateY(0px)'] },
-                { duration: 0.6, delay: (i % 6) * 0.06, easing: [0.22, 1, 0.36, 1] }
+                { opacity: [0, 1], transform: ['translateY(16px)', 'translateY(0px)'] },
+                { duration: 0.7, delay: (i % 4) * 0.05, easing: [0.22, 1, 0.36, 1] }
             );
-        }, { amount: 0.2 });
+        }, { amount: 0.18 });
     });
-
-    // Stagger the skill pills and timeline items a touch more explicitly
-    const skillItems = document.querySelectorAll('.skills-grid li');
-    if (skillItems.length) {
-        inView('#skillsGrid', () => {
-            animate(skillItems, { opacity: [0, 1], scale: [0.9, 1] }, { delay: stagger(0.03), duration: 0.4 });
-        }, { amount: 0.3 });
-    }
 } else {
-    // No-JS-animation fallback: just make everything visible
-    revealEls.forEach(el => { el.style.opacity = '1'; el.style.transform = 'none'; });
-}
-
-/* ---------- Hover micro-interactions on windows & cards ---------- */
-if (animate) {
-    document.querySelectorAll('.window').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            animate(card, { transform: ['translateY(0px)', 'translateY(-4px)'] }, { duration: 0.25, easing: 'ease-out' });
-        });
-        card.addEventListener('mouseleave', () => {
-            animate(card, { transform: ['translateY(-4px)', 'translateY(0px)'] }, { duration: 0.25, easing: 'ease-out' });
-        });
-    });
-
-    document.querySelectorAll('.btn').forEach(btn => {
-        btn.addEventListener('mouseenter', () => animate(btn, { scale: 1.04 }, { duration: 0.2 }));
-        btn.addEventListener('mouseleave', () => animate(btn, { scale: 1 }, { duration: 0.2 }));
+    revealEls.forEach((el) => {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
     });
 }
 
-/* ---------- Contact Form ---------- */
 const contactForm = document.querySelector('.contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -168,7 +106,6 @@ if (contactForm) {
     });
 }
 
-/* ---------- Back to Top ---------- */
 const backToTop = document.createElement('button');
 backToTop.innerHTML = '<i class="fas fa-arrow-up"></i>';
 backToTop.className = 'back-to-top';
@@ -181,6 +118,60 @@ window.addEventListener('scroll', () => {
 
 backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-/* ---------- Console Easter Egg ---------- */
-console.log('%c👋 Hello, fellow developer!', 'font-size: 20px; font-weight: bold; color: #88BDF2;');
-console.log('%cLike what you see? Let\'s connect!', 'font-size: 14px; color: #6A89A7;');
+function initParticles() {
+    const canvas = document.getElementById('particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let dots = [];
+    let width = 0;
+    let height = 0;
+    let running = true;
+
+    function resize() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = Math.floor(width * dpr);
+        canvas.height = Math.floor(height * dpr);
+        canvas.style.width = width + 'px';
+        canvas.style.height = height + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        const count = Math.max(28, Math.round((width * height) / 18000));
+        dots = Array.from({ length: count }, () => ({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            r: Math.random() * 1.15 + 0.35,
+            o: Math.random() * 0.45 + 0.15,
+            vy: Math.random() * 0.18 + 0.04
+        }));
+    }
+
+    function frame() {
+        if (!running) return;
+        ctx.clearRect(0, 0, width, height);
+        const light = html.getAttribute('data-theme') === 'light';
+        ctx.fillStyle = light ? '#111111' : '#ffffff';
+        for (const dot of dots) {
+            if (!reduceMotion) {
+                dot.y -= dot.vy;
+                if (dot.y < -2) dot.y = height + 2;
+            }
+            ctx.globalAlpha = dot.o;
+            ctx.beginPath();
+            ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
+            ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+        requestAnimationFrame(frame);
+    }
+
+    resize();
+    frame();
+    window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', () => {
+        running = !document.hidden;
+        if (running) frame();
+    });
+}
+
+initParticles();
